@@ -1,0 +1,1 @@
+My first Odin Project assigment for JavaScript.
