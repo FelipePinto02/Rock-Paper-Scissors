@@ -1,19 +1,16 @@
-// getting the computer's play for the round
+// starting points for the game
 let playerPoints = 0
 let computerPoints = 0
 
-
+// getting the computer's input
 function computerPlay() {
     let compOptions = ['rock', 'paper', 'scissor']
     let compPlay = compOptions[Math.floor(Math.random()*compOptions.length)];
     return(compPlay)
 }
 let computerSelection
-// getting the player's play for the round with a window prompt
-//const playerSelection = window.prompt('What\'s your play?', 'Rock, Paper or Scissor?').toLowerCase()
 
-
-// gives the result of the round
+// checks the result of the round
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay()
     if (playerSelection === 'rock') {
@@ -27,11 +24,12 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === 'scissor')  {
         return(playScissor(playerSelection))
     }     
-};
+}
 
+// plays the round, declares its winner and update the scoreboard
 function game() {
     computerSelection = computerPlay()
-    const playerSelection = window.prompt('What\'s your play?', 'Rock, Paper or Scissor?').toLowerCase()
+    const playerSelection = window.prompt('What\'s your play?', 'Rock, Paper or Scissor?').toLowerCase() /* getting player's input */
     playRound(playerSelection, computerSelection)
     if (playRound(playerSelection, computerSelection) == 'You won') {
         console.log(playRound(playerSelection, computerSelection))
@@ -52,12 +50,14 @@ function game() {
     }
 }
 
-//console.log(game()) 
-for (let i=1; i <= 5; i++) {
+// loops the game for a i rounds match 
+for (let i=1; i <= 5 /* number of rounds */ ; i++) {
     console.log(`Game #${i}`)
     game()
     console.log(' ')
 }
+
+/* --------------------------------------- evaluating player's choices --------------------------------------- */
 
 // if player chooses rock
 function playRock(playerSelection) {
