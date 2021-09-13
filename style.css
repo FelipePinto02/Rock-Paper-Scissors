@@ -1,0 +1,23 @@
+.button-container {
+    position: relative;
+    top: 350px;
+    width: 50%;
+    margin: auto;
+    /*border: red solid 1px;*/
+    text-align: center;
+}
+
+.score-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    top: 350px;
+    width: 50%;
+    margin: auto;
+    /*border: red solid 1px;*/
+    text-align: center;
+}
+
+button {
+    margin: 50px;
+}
