@@ -1,10 +1,13 @@
-.button-container {
+.button-grid {
+    display: grid;
+    grid-template-rows: 2fr 2fr;
+    grid-template-columns: repeat(3, 1fr);
     position: relative;
     top: 350px;
     width: 50%;
     margin: auto;
     /*border: red solid 1px;*/
-    text-align: center;
+    align-content: center;
 }
 
 .score-grid {
@@ -19,5 +22,15 @@
 }
 
 button {
-    margin: 50px;
+    margin: auto;
+    padding: 10px;
+    width: 150px;
+    grid-row: 1;
+    margin-bottom: 50px;
+}
+
+.winner {
+    text-align: center;
+    grid-column: 2;
+    margin-top: 25px;
 }

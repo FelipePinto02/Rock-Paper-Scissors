@@ -27,6 +27,7 @@ function playRound(playerSelection, computerSelection) {
 
 let playerScore = document.querySelector('.player-score')
 let computerScore = document.querySelector('.computer-score')
+let winner = document.querySelector('.winner')
 const rockBtn = document.querySelector('.rock')
 const paperBtn = document.querySelector('.paper')
 const scissorBtn = document.querySelector('.scissor')
@@ -41,9 +42,14 @@ function clickRock() {
     playRound(playerSelection, computerSelection)
     if (playRound(playerSelection, computerSelection) == 'You won') {
         playerPoints += 1
+        winner.textContent = 'You won, rock beats scissor! Point for you!'
     }
     if (playRound(playerSelection, computerSelection) == 'You lost') {
         computerPoints += 1
+        winner.textContent = 'You lost, paper beats rock... Point for the robot!'
+    }
+    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
+        winner.textContent = 'It\'s a tie.'
     }
     playerScore.textContent = playerPoints
     computerScore.textContent = computerPoints
@@ -55,9 +61,14 @@ function clickPaper() {
     playRound(playerSelection, computerSelection)
     if (playRound(playerSelection, computerSelection) == 'You won') {
         playerPoints += 1
+        winner.textContent = 'You won, paper beats rock! Point for you!'
     }
     if (playRound(playerSelection, computerSelection) == 'You lost') {
         computerPoints += 1
+        winner.textContent = 'You lost, scissor beats paper... Point for the robot!'
+    }
+    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
+        winner.textContent = 'It\'s a tie.'
     }
     playerScore.textContent = playerPoints
     computerScore.textContent = computerPoints
@@ -69,9 +80,14 @@ function clickScissor() {
     playRound(playerSelection, computerSelection)
     if (playRound(playerSelection, computerSelection) == 'You won') {
         playerPoints += 1
+        winner.textContent = 'You won, scissor beats paper! Point for you!'
     }
     if (playRound(playerSelection, computerSelection) == 'You lost') {
         computerPoints += 1
+        winner.textContent = 'You lost, rock beats scissor... Point for the robot!'
+    }
+    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
+        winner.textContent = 'It\'s a tie.'
     }
     playerScore.textContent = playerPoints
     computerScore.textContent = computerPoints
@@ -133,6 +149,7 @@ function checkWinner() {
         computerPoints = 0
         playerScore.textContent = playerPoints
         computerScore.textContent = computerPoints
+        winner.textContent = 'Make your choice'
     }
     if (computerPoints === 5) {
         alert('You lost...')
@@ -140,5 +157,6 @@ function checkWinner() {
         computerPoints = 0
         playerScore.textContent = playerPoints
         computerScore.textContent = computerPoints
+        winner.textContent = 'Make your choice'
     } 
 }
