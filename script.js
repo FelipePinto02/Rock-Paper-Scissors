@@ -8,7 +8,6 @@ function computerPlay() {
     let compPlay = compOptions[Math.floor(Math.random()*compOptions.length)];
     return(compPlay)
 }
-let computerSelection
 
 // checks the result of the round
 function playRound(playerSelection, computerSelection) {
@@ -26,7 +25,60 @@ function playRound(playerSelection, computerSelection) {
     }     
 }
 
-/* --------------------------------------- evaluating player's choices --------------------------------------- */
+let playerScore = document.querySelector('.player-score')
+let computerScore = document.querySelector('.computer-score')
+const rockBtn = document.querySelector('.rock')
+const paperBtn = document.querySelector('.paper')
+const scissorBtn = document.querySelector('.scissor')
+
+rockBtn.addEventListener('click', clickRock)
+paperBtn.addEventListener('click', clickPaper)
+scissorBtn.addEventListener('click', clickScissor)
+
+function clickRock() {
+    computerSelection = computerPlay()
+    const playerSelection = 'rock'
+    playRound(playerSelection, computerSelection)
+    if (playRound(playerSelection, computerSelection) == 'You won') {
+        playerPoints += 1
+    }
+    if (playRound(playerSelection, computerSelection) == 'You lost') {
+        computerPoints += 1
+    }
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
+    checkWinner()
+}
+function clickPaper() {
+    computerSelection = computerPlay()
+    const playerSelection = 'paper'
+    playRound(playerSelection, computerSelection)
+    if (playRound(playerSelection, computerSelection) == 'You won') {
+        playerPoints += 1
+    }
+    if (playRound(playerSelection, computerSelection) == 'You lost') {
+        computerPoints += 1
+    }
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
+    checkWinner()
+}
+function clickScissor() {
+    computerSelection = computerPlay()
+    const playerSelection = 'scissor'
+    playRound(playerSelection, computerSelection)
+    if (playRound(playerSelection, computerSelection) == 'You won') {
+        playerPoints += 1
+    }
+    if (playRound(playerSelection, computerSelection) == 'You lost') {
+        computerPoints += 1
+    }
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
+    checkWinner()
+}
+
+/* --------------------------------------- helper functions --------------------------------------- */
 
 // if player chooses rock
 function playRock(playerSelection) {
@@ -73,91 +125,20 @@ function playScissor(playerSelection) {
     }
 }
 
-
-
-let playerScore = document.querySelector('.player-score')
-let computerScore = document.querySelector('.computer-score')
-const rockBtn = document.querySelector('.rock')
-const paperBtn = document.querySelector('.paper')
-const scissorBtn = document.querySelector('.scissor')
-
-
-
-rockBtn.addEventListener('click', clickRock)
-paperBtn.addEventListener('click', clickPaper)
-scissorBtn.addEventListener('click', clickScissor)
-
-function clickRock() {
-    computerSelection = computerPlay()
-    const playerSelection = 'rock'
-    playRound(playerSelection, computerSelection)
-    if (playRound(playerSelection, computerSelection) == 'You won') {
-        console.log(playRound(playerSelection, computerSelection))
-        playerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
+// checking who won the game
+function checkWinner() {
+    if (playerPoints === 5) {
+        alert('You won!!')
+        playerPoints = 0
+        computerPoints = 0
+        playerScore.textContent = playerPoints
+        computerScore.textContent = computerPoints
     }
-    if (playRound(playerSelection, computerSelection) == 'You lost') {
-        console.log(playRound(playerSelection, computerSelection))
-        computerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
-        console.log(playRound(playerSelection, computerSelection))
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    playerScore.textContent = playerPoints
-    computerScore.textContent = computerPoints
+    if (computerPoints === 5) {
+        alert('You lost...')
+        playerPoints = 0
+        computerPoints = 0
+        playerScore.textContent = playerPoints
+        computerScore.textContent = computerPoints
+    } 
 }
-function clickPaper() {
-    computerSelection = computerPlay()
-    const playerSelection = 'paper'
-    playRound(playerSelection, computerSelection)
-    if (playRound(playerSelection, computerSelection) == 'You won') {
-        console.log(playRound(playerSelection, computerSelection))
-        playerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    if (playRound(playerSelection, computerSelection) == 'You lost') {
-        console.log(playRound(playerSelection, computerSelection))
-        computerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
-        console.log(playRound(playerSelection, computerSelection))
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    playerScore.textContent = playerPoints
-    computerScore.textContent = computerPoints
-}
-function clickScissor() {
-    computerSelection = computerPlay()
-    const playerSelection = 'scissor'
-    playRound(playerSelection, computerSelection)
-    if (playRound(playerSelection, computerSelection) == 'You won') {
-        console.log(playRound(playerSelection, computerSelection))
-        playerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    if (playRound(playerSelection, computerSelection) == 'You lost') {
-        console.log(playRound(playerSelection, computerSelection))
-        computerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
-        console.log(playRound(playerSelection, computerSelection))
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    playerScore.textContent = playerPoints
-    computerScore.textContent = computerPoints
-}
-
-
