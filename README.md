@@ -1,1 +1,1 @@
-My first Odin Project assigment for JavaScript.
+My first Odin Project assigment with JavaScript.
