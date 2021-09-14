@@ -1,12 +1,10 @@
 .button-grid {
     display: grid;
-    grid-template-rows: 2fr 2fr;
     grid-template-columns: repeat(3, 1fr);
     position: relative;
     top: 350px;
     width: 50%;
     margin: auto;
-    /*border: red solid 1px;*/
     align-content: center;
 }
 
@@ -17,8 +15,17 @@
     top: 350px;
     width: 50%;
     margin: auto;
-    /*border: red solid 1px;*/
     text-align: center;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 80px;
+    position: relative;
+    top: 350px;
+    width: 50%;
+    margin: auto;
 }
 
 button {
@@ -33,4 +40,9 @@ button {
     text-align: center;
     grid-column: 2;
     margin-top: 25px;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
