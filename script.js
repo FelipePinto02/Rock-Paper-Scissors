@@ -26,37 +26,6 @@ function playRound(playerSelection, computerSelection) {
     }     
 }
 
-// plays the round, declares its winner and update the scoreboard
-function game() {
-    computerSelection = computerPlay()
-    const playerSelection = window.prompt('What\'s your play?', 'Rock, Paper or Scissor?').toLowerCase() /* getting player's input */
-    playRound(playerSelection, computerSelection)
-    if (playRound(playerSelection, computerSelection) == 'You won') {
-        console.log(playRound(playerSelection, computerSelection))
-        playerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    if (playRound(playerSelection, computerSelection) == 'You lost') {
-        console.log(playRound(playerSelection, computerSelection))
-        computerPoints += 1
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
-        console.log(playRound(playerSelection, computerSelection))
-        console.log(`Your score: ${playerPoints}`)
-        console.log(`Computer\'s score: ${computerPoints}`)
-    }
-}
-
-// loops the game for a i rounds match 
-for (let i=1; i <= 5 /* number of rounds */ ; i++) {
-    console.log(`Game #${i}`)
-    game()
-    console.log(' ')
-}
-
 /* --------------------------------------- evaluating player's choices --------------------------------------- */
 
 // if player chooses rock
@@ -103,4 +72,92 @@ function playScissor(playerSelection) {
         }
     }
 }
+
+
+
+let playerScore = document.querySelector('.player-score')
+let computerScore = document.querySelector('.computer-score')
+const rockBtn = document.querySelector('.rock')
+const paperBtn = document.querySelector('.paper')
+const scissorBtn = document.querySelector('.scissor')
+
+
+
+rockBtn.addEventListener('click', clickRock)
+paperBtn.addEventListener('click', clickPaper)
+scissorBtn.addEventListener('click', clickScissor)
+
+function clickRock() {
+    computerSelection = computerPlay()
+    const playerSelection = 'rock'
+    playRound(playerSelection, computerSelection)
+    if (playRound(playerSelection, computerSelection) == 'You won') {
+        console.log(playRound(playerSelection, computerSelection))
+        playerPoints += 1
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    if (playRound(playerSelection, computerSelection) == 'You lost') {
+        console.log(playRound(playerSelection, computerSelection))
+        computerPoints += 1
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
+}
+function clickPaper() {
+    computerSelection = computerPlay()
+    const playerSelection = 'paper'
+    playRound(playerSelection, computerSelection)
+    if (playRound(playerSelection, computerSelection) == 'You won') {
+        console.log(playRound(playerSelection, computerSelection))
+        playerPoints += 1
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    if (playRound(playerSelection, computerSelection) == 'You lost') {
+        console.log(playRound(playerSelection, computerSelection))
+        computerPoints += 1
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
+}
+function clickScissor() {
+    computerSelection = computerPlay()
+    const playerSelection = 'scissor'
+    playRound(playerSelection, computerSelection)
+    if (playRound(playerSelection, computerSelection) == 'You won') {
+        console.log(playRound(playerSelection, computerSelection))
+        playerPoints += 1
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    if (playRound(playerSelection, computerSelection) == 'You lost') {
+        console.log(playRound(playerSelection, computerSelection))
+        computerPoints += 1
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    if (playRound(playerSelection, computerSelection) == 'It\'s a tie') {
+        console.log(playRound(playerSelection, computerSelection))
+        console.log(`Your score: ${playerPoints}`)
+        console.log(`Computer\'s score: ${computerPoints}`)
+    }
+    playerScore.textContent = playerPoints
+    computerScore.textContent = computerPoints
+}
+
 
