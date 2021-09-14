@@ -1,3 +1,22 @@
+body {
+    background-color: #d5e2ea;
+    color: #003e65;
+    font-size: 20px;
+}
+
+header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    padding: 25px;
+    border-bottom: solid 5px #116927d9;
+    width: 97.4%;
+    background-color: #b0d9f3;
+    color: #012225d9;
+    font-size: 25px;
+}
+
 .button-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,7 +61,24 @@ button {
     margin-top: 25px;
 }
 
-button:hover {
+img:hover {
     cursor: pointer;
     transform: scale(1.05);
+    box-shadow: 2.5px 5px #615f5f;
+}
+
+img {
+    width: 85px;
+    height: 85px;
+    border-radius: 25%;
+    border: solid black 1px;
+    padding: 5px;
+    background-color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
