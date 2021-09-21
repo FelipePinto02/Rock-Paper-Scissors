@@ -61,7 +61,7 @@ button {
     margin-top: 25px;
 }
 
-img:hover {
+.button-grid img:hover {
     cursor: pointer;
     transform: scale(1.05);
     box-shadow: 2.5px 5px #615f5f;
@@ -81,4 +81,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#player-choice {
+    margin-top: 5px;
 }

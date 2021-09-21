@@ -31,6 +31,10 @@ let winner = document.querySelector('.winner')
 const rockBtn = document.querySelector('.rock')
 const paperBtn = document.querySelector('.paper')
 const scissorBtn = document.querySelector('.scissor')
+const playerChoiceDiv = document.querySelector('#player-choice')
+const playerChoice = document.createElement('img')
+const computerChoiceDiv = document.querySelector('#computer-choice')
+const computerChoice = document.createElement('img')
 
 rockBtn.addEventListener('click', clickRock)
 paperBtn.addEventListener('click', clickPaper)
@@ -38,7 +42,11 @@ scissorBtn.addEventListener('click', clickScissor)
 
 function clickRock() {
     computerSelection = computerPlay()
+    showComputerChoice(computerSelection)
     const playerSelection = 'rock'
+    playerChoiceDiv.appendChild(playerChoice)
+    playerChoice.src = 'imgs/rock.png'
+    playerChoice.alt = 'rock'
     playRound(playerSelection, computerSelection)
     if (playRound(playerSelection, computerSelection) == 'You won') {
         playerPoints += 1
@@ -57,7 +65,11 @@ function clickRock() {
 }
 function clickPaper() {
     computerSelection = computerPlay()
+    showComputerChoice(computerSelection)
     const playerSelection = 'paper'
+    playerChoiceDiv.appendChild(playerChoice)
+    playerChoice.src = 'imgs/paper.png'
+    playerChoice.alt = 'paper'
     playRound(playerSelection, computerSelection)
     if (playRound(playerSelection, computerSelection) == 'You won') {
         playerPoints += 1
@@ -76,7 +88,11 @@ function clickPaper() {
 }
 function clickScissor() {
     computerSelection = computerPlay()
+    showComputerChoice(computerSelection)
     const playerSelection = 'scissor'
+    playerChoiceDiv.appendChild(playerChoice)
+    playerChoice.src = 'imgs/scissor.png'
+    playerChoice.alt = 'scissor'
     playRound(playerSelection, computerSelection)
     if (playRound(playerSelection, computerSelection) == 'You won') {
         playerPoints += 1
@@ -150,6 +166,8 @@ function checkWinner() {
         playerScore.textContent = playerPoints
         computerScore.textContent = computerPoints
         winner.textContent = 'Make your choice'
+        playerChoiceDiv.removeChild(playerChoice)
+        computerChoiceDiv.removeChild(computerChoice)
     }
     if (computerPoints === 5) {
         alert('You lost...')
@@ -158,5 +176,25 @@ function checkWinner() {
         playerScore.textContent = playerPoints
         computerScore.textContent = computerPoints
         winner.textContent = 'Make your choice'
+        playerChoiceDiv.removeChild(playerChoice)
+        computerChoiceDiv.removeChild(computerChoice)
     } 
+}
+
+function showComputerChoice(computerSelection) {
+    if (computerSelection == 'rock') {
+        computerChoiceDiv.appendChild(computerChoice)
+        computerChoice.src = 'imgs/rock.png'
+        computerChoice.alt = 'rock'
+    }
+    if (computerSelection == 'paper') {
+        computerChoiceDiv.appendChild(computerChoice)
+        computerChoice.src = 'imgs/paper.png'
+        computerChoice.alt = 'paper'
+    }
+    if (computerSelection == 'scissor') {
+        computerChoiceDiv.appendChild(computerChoice)
+        computerChoice.src = 'imgs/scissor.png'
+        computerChoice.alt = 'scissor'
+    }
 }
